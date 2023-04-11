@@ -11,10 +11,10 @@ public class AddTwoNumber {
     public static void main(String[] args) {
 //        int[] numbers1 = new int[]{9, 9, 9, 9, 9, 9, 9};
 //        int[] numbers2 = new int[]{9, 9, 9, 9};
-//        int[] numbers1 = new int[]{2, 4, 3};
-//        int[] numbers2 = new int[]{5, 6, 4};
-        int[] numbers1 = new int[]{0};
-        int[] numbers2 = new int[]{0};
+        int[] numbers1 = new int[]{2, 4, 3};
+        int[] numbers2 = new int[]{5, 6, 4};
+//        int[] numbers1 = new int[]{0};
+//        int[] numbers2 = new int[]{0};
 
         List<ListNode> l1 = init(numbers1);
         List<ListNode> l2 = init(numbers2);
