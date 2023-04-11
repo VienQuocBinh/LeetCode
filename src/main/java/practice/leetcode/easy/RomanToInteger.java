@@ -15,11 +15,11 @@ import java.util.HashMap;
  */
 public class RomanToInteger {
     public static void main(String[] args) {
-        String case1 = "III";
-        String case2 = "LVIII";
-        String case3 = "MCMXCIV";
+        String case1 = "III"; // 3
+        String case2 = "LVIII"; // 58
+        String case3 = "MCMXCIV"; // 1994
 
-        System.out.println(romanToInteger(case2));
+        System.out.println(romanToInteger(case3));
     }
 
     static int romanToInteger(String s) {
