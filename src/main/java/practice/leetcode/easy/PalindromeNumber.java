@@ -3,6 +3,8 @@ package practice.leetcode.easy;
 public class PalindromeNumber {
     /*
     Số đối xứng
+    Đối xứng: true
+    K đối xứng: false
      */
     public static void main(String[] args) {
         System.out.println(isPalindrome(-127));

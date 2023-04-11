@@ -5,6 +5,10 @@ import java.util.List;
 
 /**
  * Single link list has many nodes
+ * Cộng 2 số (Node) của 2 chuỗi (ListNode) có tính số dư
+ * {2, 4, 3}
+ * + {5, 6, 4}
+ * = 7, 0, 8
  */
 
 public class AddTwoNumber {
@@ -34,10 +38,6 @@ public class AddTwoNumber {
             // move the next node
             node = node.next;
         }
-//        ListNode beforeLastNode = list.get(list.size() - 1);
-//        ListNode last = new ListNode(numbers[numbers.length - 1]);
-//        beforeLastNode.next = last;
-//        list.add(last);
         return list;
     }
 
@@ -60,7 +60,7 @@ public class AddTwoNumber {
             current.next = new ListNode(sum % 10);
             sum = 0;
             current = current.next;
-            System.out.println(current.value);
+            System.out.print(current.value);
         }
         return head.next;
     }

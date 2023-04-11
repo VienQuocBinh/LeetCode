@@ -6,6 +6,7 @@ package practice.leetcode.easy;
 public class MissingInteger {
 
     /*
+    Find the missing integer in the given array
     {1,2,3,4,1} return 5
     {-1,-2} return 1
     {1,3,2,1,5} return 4
