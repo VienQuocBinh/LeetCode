@@ -5,7 +5,7 @@ public class LongestPalindromic {
         String s1 = "babad"; // "bab" || "aba"
         String s2 = "cbbd"; // "bb"
         String s3 = "ccc"; // "ccc"
-        System.out.println(longestPalindromicString(s1));
+        System.out.println(longestPalindromicString(s3));
     }
 
     static String longestPalindromicString(String s) {
@@ -16,7 +16,9 @@ public class LongestPalindromic {
             int even = expandedPalindromicStringLength(s, i, i + 1); // For palindromic strings has even length
             if (Math.max(odd, even) > maxLength) {
                 maxLength = Math.max(odd, even);
-                result = s.substring(i - (maxLength - 1) / 2, i + maxLength / 2 + 1);
+                int begin = i - (maxLength - 1) / 2;
+                int end = i + maxLength / 2 + 1;
+                result = s.substring(begin, end);
             }
         }
         return result;
