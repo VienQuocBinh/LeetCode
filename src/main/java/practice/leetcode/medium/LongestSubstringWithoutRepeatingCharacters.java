@@ -33,17 +33,23 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int len = 0;
         int left = 0;
         Set<Character> set = new HashSet<>();
+        // Loop through all characters
         for (int right = 0; right < s.length(); right++) {
+            // If this character doesn't have in the set -> add it to the set
             if (!set.contains(s.charAt(right))) {
                 set.add(s.charAt(right));
                 len = Math.max(len, right - left + 1);
             } else {
+                // If this character already has in the set
+                // -> remove the different char from the left until we find the same character
                 while (s.charAt(left) != s.charAt(right)) {
                     set.remove(s.charAt(left));
                     left++;
                 }
+                // Remove the same character from the left
                 set.remove(s.charAt(left));
                 left++;
+                // Add the next character
                 set.add(s.charAt(right));
 
             }
