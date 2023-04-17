@@ -1,5 +1,7 @@
 package practice.leetcode.easy;
 
+import java.util.Arrays;
+
 /**
  * @author LucasBV
  */
@@ -14,20 +16,12 @@ public class MissingInteger {
     public static void main(String[] args) {
         // Find the missing integer in the array
         int[] arr = new int[]{1, 2, 3, 4, 1};
-        System.out.println("result:" + missingInt(arr));
+        System.out.println(missingInt(arr));
     }
 
     static int missingInt(int[] arr) {
         int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
+        Arrays.sort(arr);
         // create temp array to remove duplicate
         int[] tarr = new int[n];
         int k = 0;
