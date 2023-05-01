@@ -22,7 +22,12 @@ public class AddTwoNumber {
 
         List<ListNode> l1 = init(numbers1);
         List<ListNode> l2 = init(numbers2);
-        addTwoNumbers(l1.get(0), l2.get(0));
+        ListNode result = addTwoNumbers(l1.get(0), l2.get(0));
+        while (result.next != null) {
+            System.out.print(result.value);
+            result = result.next;
+        }
+
     }
 
     private static List<ListNode> init(int[] numbers) {
@@ -57,10 +62,13 @@ public class AddTwoNumber {
             }
             sum += carry;
             carry = sum / 10;
-            current.next = new ListNode(sum % 10);
+//            head.next = new ListNode(sum % 10);
+            current.value = sum % 10;
+
             sum = 0;
+            current.next = new ListNode(sum);
             current = current.next;
-            System.out.print(current.value);
+//            System.out.print(current.value);
         }
         return head.next;
     }
