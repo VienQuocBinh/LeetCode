@@ -1,7 +1,6 @@
 package practice.leetcode.medium;
 
-import java.util.ArrayList;
-import java.util.List;
+import static practice.leetcode.medium.ListNode.init;
 
 /**
  * Single link list has many nodes
@@ -20,31 +19,16 @@ public class AddTwoNumber {
 //        int[] numbers1 = new int[]{0};
 //        int[] numbers2 = new int[]{0};
 
-        List<ListNode> l1 = init(numbers1);
-        List<ListNode> l2 = init(numbers2);
-        ListNode result = addTwoNumbers(l1.get(0), l2.get(0));
-        while (result.next != null) {
-            System.out.print(result.value);
+        ListNode l1 = init(numbers1);
+        ListNode l2 = init(numbers2);
+        ListNode result = addTwoNumbers(l1, l2);
+        while (result != null) {
+            System.out.print(result.val);
             result = result.next;
         }
 
     }
 
-    private static List<ListNode> init(int[] numbers) {
-        List<ListNode> list = new ArrayList<>();
-        ListNode node = new ListNode();
-        for (int i = 0; i < numbers.length; i++) {
-            node.value = numbers[i];
-            if (i < numbers.length - 1) {
-                // add the next node value
-                node.next = new ListNode(numbers[i + 1]);
-            }
-            list.add(node);
-            // move the next node
-            node = node.next;
-        }
-        return list;
-    }
 
     static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int sum = 0;
@@ -53,40 +37,19 @@ public class AddTwoNumber {
         ListNode current = head;
         while (l1 != null || l2 != null || carry > 0) {
             if (l1 != null) {
-                sum += l1.value;
+                sum += l1.val;
                 l1 = l1.next;
             }
             if (l2 != null) {
-                sum += l2.value;
+                sum += l2.val;
                 l2 = l2.next;
             }
             sum += carry;
             carry = sum / 10;
-//            head.next = new ListNode(sum % 10);
-            current.value = sum % 10;
-
+            current.next = new ListNode(sum % 10);
             sum = 0;
-            current.next = new ListNode(sum);
             current = current.next;
-//            System.out.print(current.value);
         }
         return head.next;
-    }
-}
-
-class ListNode {
-    int value;
-    ListNode next;
-
-    public ListNode() {
-    }
-
-    public ListNode(int value) {
-        this.value = value;
-    }
-
-    public ListNode(int value, ListNode next) {
-        this.value = value;
-        this.next = next;
     }
 }
