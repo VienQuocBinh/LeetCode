@@ -38,7 +38,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
             // If this character doesn't have in the set -> add it to the set
             if (!set.contains(s.charAt(right))) {
                 set.add(s.charAt(right));
-                len = Math.max(len, right - left + 1);
+                len = Math.max(len, right - left + 1); // calculate length of the substring
             } else {
                 // If this character already has in the set
                 // -> remove the different char from the left until we find the same character
