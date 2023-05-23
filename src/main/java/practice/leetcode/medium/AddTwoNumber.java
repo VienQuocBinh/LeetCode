@@ -1,6 +1,8 @@
 package practice.leetcode.medium;
 
-import static practice.leetcode.medium.ListNode.init;
+import practice.leetcode.ListNode;
+
+import static practice.leetcode.ListNode.init;
 
 /**
  * Single link list has many nodes
@@ -36,19 +38,21 @@ public class AddTwoNumber {
         ListNode head = new ListNode();
         ListNode current = head;
         while (l1 != null || l2 != null || carry > 0) {
+            // get 1 value from l1 if present
             if (l1 != null) {
                 sum += l1.val;
                 l1 = l1.next;
             }
+            // get 1 value from l2 if present
             if (l2 != null) {
                 sum += l2.val;
                 l2 = l2.next;
             }
-            sum += carry;
-            carry = sum / 10;
-            current.next = new ListNode(sum % 10);
-            sum = 0;
-            current = current.next;
+            sum += carry; // add the carry to the sum
+            carry = sum / 10; // calculate the new carry
+            current.next = new ListNode(sum % 10); // set result to current list
+            sum = 0; // reset sum
+            current = current.next; // move head to the next node
         }
         return head.next;
     }

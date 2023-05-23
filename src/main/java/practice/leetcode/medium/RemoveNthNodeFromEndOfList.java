@@ -1,6 +1,8 @@
 package practice.leetcode.medium;
 
-import static practice.leetcode.medium.ListNode.init;
+import practice.leetcode.ListNode;
+
+import static practice.leetcode.ListNode.init;
 
 /*
 Given the head of a linked list, remove the nth node from the end of the list and return its head.
@@ -43,13 +45,14 @@ public class RemoveNthNodeFromEndOfList {
             early = early.next;
         }
         if (early == null) {
+            assert head != null;
             return head.next;
         }
         while (early.next != null) {
             early = early.next;
             late = late.next;
         }
-        late.next = late.next.next;
+        late.next = late.next.next; // remove nth node
         return head;
     }
 }
