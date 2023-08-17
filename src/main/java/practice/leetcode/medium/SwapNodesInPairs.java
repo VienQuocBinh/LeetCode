@@ -31,6 +31,6 @@ public class SwapNodesInPairs {
             current = current.next.next;
         }
 
-        return dummy;
+        return dummy.next;
     }
 }
