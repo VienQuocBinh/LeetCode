@@ -74,4 +74,31 @@ public class ReverseNodesInKGroup {
 
         return prev;
     }
+
+    /*
+    Reverse the elements which are not in the group
+     */
+    static ListNode reverseKGroupAndTheRest(ListNode head, int k) {
+        if (head == null) return null;
+        ListNode root = new ListNode(0, head); // hold the start point while the head node is changed
+        ListNode current = head;
+        ListNode prev = root;
+
+        while (current != null) {
+            // Hold the last node of the group after reversed by set tail node as the current node
+            ListNode tail = current;
+            int listIndex = 0;
+            // Move the current node to the last node of the group
+            while (current != null && listIndex < k) {
+                current = current.next;
+                listIndex++;
+            }
+            // prev node points to the head node of the reversed group
+            prev.next = reverse(tail, k);
+            // Set prev to the old current node (the first node of the group before reverse, the last node of the reversed group)
+            prev = tail;
+        }
+
+        return root.next;
+    }
 }
