@@ -78,6 +78,7 @@ public class SubstringWithConcatenationOfAllWords {
                     // Put the word and increase its occurrences by 1
                     window.put(word, window.getOrDefault(word, 0) + 1);
                     // Loop while the occurrences of seen words are more than the needed words
+                    // Compare the occurrences of the words in window and wordCount map
                     while (window.get(word) > wordCount.get(word)) {
                         String leftWord = s.substring(left, left + wordLength); // Get the left word
                         window.put(leftWord, window.get(leftWord) - 1); // Decrease the occurrences of the left word by 1
