@@ -41,13 +41,14 @@ public class SubstringWithConcatenationOfAllWords {
         String s1 = "barfoothefoobarman";
         String[] words1 = {"foo", "bar"};
         System.out.println(findSubstring(s1, words1));  // Output: [0, 9]
+
         String s2 = "wordgoodgoodgoodbestword";
         String[] words2 = {"word", "good", "best", "word"};
-//        System.out.println(findSubstring(s2, words2));  // Output: []
+        System.out.println(findSubstring(s2, words2));  // Output: []
 
         String s3 = "barfoofoobarthefoobarman";
         String[] words3 = {"bar", "foo", "the"};
-//        System.out.println(findSubstring(s3, words3));  // Output: [6, 9, 12]
+        System.out.println(findSubstring(s3, words3));  // Output: [6, 9, 12]
     }
 
     static List<Integer> findSubstring(String s, String[] words) {
@@ -64,11 +65,11 @@ public class SubstringWithConcatenationOfAllWords {
         }
 
         for (int i = 0; i < wordLength; i++) {
-            int left = 0;
-            int right = 0;
+            int left = i;
+            int right = i;
             Map<String, Integer> window = new HashMap<>(); // temporary array
             // Loop until the last word
-            while (left + wordLength <= s.length()) {
+            while (right + wordLength <= s.length()) {
                 String word = s.substring(right, right + wordLength);
                 right += wordLength;
 
