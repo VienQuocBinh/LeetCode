@@ -45,7 +45,7 @@ public class CyclicRotation {
 
         int[] A2 = new int[length];
         for (int i = 0; i < K; i++) {
-            A2[0] = A[length - 1];
+            A2[0] = A[length - 1]; // Set the last element of A array to the first element of A2 array (reverse element)
             // Copy the array A position 0 -> length-2 to A2 position 1 -> length-1
             System.arraycopy(A, 0, A2, 1, length - 1);
             // Update A array same with A2 array
